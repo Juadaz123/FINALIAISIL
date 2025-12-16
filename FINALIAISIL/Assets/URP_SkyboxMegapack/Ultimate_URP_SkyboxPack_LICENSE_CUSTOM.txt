@@ -1,0 +1,27 @@
+Ultimate URP Skybox Starter Pack License
+========================================
+
+Version 1.0 — Simplified Asset Use License
+
+You are free to:
+----------------
+- Use these assets in any personal or commercial project.
+- Modify the textures, materials, and demo scene for your own use.
+- Include them in games, apps, videos, renders, and other creative work, whether free or paid.
+
+You are not allowed to:
+-----------------------
+- Resell, repackage, or redistribute these assets (original or modified) as a standalone product, asset pack, or part of another collection.
+- Claim authorship or ownership of the original assets.
+- Upload or share the pack or its contents on other sites as a separate download.
+
+Attribution:
+------------
+Not required.
+If you wish to give credit, please mention:
+"Skyboxes from Ultimate URP Skybox Starter Pack by OQRN"
+
+Warranty:
+---------
+This content is provided “as is,” without warranty of any kind.
+Use at your own risk.
