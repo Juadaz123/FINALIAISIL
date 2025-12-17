@@ -1,6 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using ObjectPool;
 
 namespace Player
 {
@@ -11,9 +13,11 @@ namespace Player
         [SerializeField] private float speed = 15f;
         [SerializeField] private float rotationSpeed = 50f;
         [SerializeField] private GameObject biteCollider;
+        [SerializeField] private GameObject biteSpawn;
 
         [Header("Dependencies")]
-        [SerializeField] private SharkColor sharkColor; 
+        [SerializeField] private SharkColor sharkColor;
+            [SerializeField] private SymbolPool symbolPool;
         
         private int _swimMultiplierID; 
         private Animator _animator;
@@ -38,6 +42,8 @@ namespace Player
             
             if (sharkColor == null)
                 sharkColor = GetComponent<SharkColor>();
+            
+            
         }
 
         private void FixedUpdate()
@@ -104,10 +110,24 @@ namespace Player
 
         private IEnumerator Bites()
         {
+            // 1. Verificación de seguridad para evitar el error NullReference
+            if (biteSpawn == null)
+            {
+                Debug.LogError("ERROR: No has asignado el 'Bite Spawn' en el inspector del PlayerController.");
+                yield break;
+            }
+
+            if (symbolPool == null)
+            {
+                Debug.LogError("ERROR: No se encuentra 'SymbolPool' en la escena.");
+                yield break;
+            }
+            
             if(biteCollider == null) yield break;
             
             biteCollider.SetActive(true);
             
+            symbolPool.SpawnPlayerSymbol(biteSpawn.transform);
             yield return new WaitForSeconds(1.2f);
             
             biteCollider.SetActive(false); 
